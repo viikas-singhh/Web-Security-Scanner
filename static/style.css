@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0f1f 0%, #000814 100%);
+    color: #d0e8ff;
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+.container-fluid {
+    padding: 2rem clamp(1rem, 4vw, 10rem);
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.title {
+    font-family: 'Orbitron', sans-serif;
+    color: #40c4ff;
+    font-size: clamp(2.1rem, 5vw, 3.2rem);     /* ← much smaller than before */
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 0 12px rgba(64, 196, 255, 0.55);   /* softer glow */
+    margin-bottom: 0.6rem;
+}
+
+.subtitle {
+    color: #81d4fa;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    opacity: 0.9;
+    letter-spacing: 0.8px;
+}
+
+.scan-box {
+    background: rgba(10, 25, 47, 0.65);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(64, 196, 255, 0.25);
+    border-radius: 14px;
+    padding: 1.8rem 2.2rem;
+    max-width: 820px;
+    margin: 0 auto 3rem;
+    box-shadow: 0 0 32px rgba(64, 196, 255, 0.18);
+}
+
+#urlInput {
+    background: rgba(5, 15, 35, 0.8);
+    border: 1px solid rgba(64, 196, 255, 0.4);
+    color: #e3f2fd;
+    border-radius: 10px;
+    padding: 1.1rem 1.4rem;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+}
+
+#urlInput:focus {
+    border-color: #40c4ff;
+    box-shadow: 0 0 0 3px rgba(64, 196, 255, 0.3);
+    background: rgba(8, 22, 48, 0.9);
+}
+
+.btn-scan {
+    background: linear-gradient(90deg, #00b0ff, #40c4ff);
+    border: none;
+    color: #000e1f;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 0.95rem 2.4rem;
+    border-radius: 10px;
+    width: 100%;
+    letter-spacing: 0.6px;
+    box-shadow: 0 0 24px rgba(64, 196, 255, 0.5);
+    transition: all 0.3s;
+}
+
+.btn-scan:hover {
+    box-shadow: 0 0 40px rgba(64, 196, 255, 0.75);
+    transform: translateY(-1px);
+}
+
+.loading {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 4rem 0;
+    color: #81d4fa;
+    font-size: 1.15rem;
+}
+
+.spinner-border {
+    width: 3.6rem;
+    height: 3.6rem;
+    border-width: 0.42em;
+    border-top-color: #40c4ff;
+}
+
+.metrics {
+    display: none;
+    gap: 1.6rem;
+    justify-content: center;
+    margin: 3rem 0 4rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.7s ease;
+    flex-wrap: wrap;
+}
+
+.metrics.show {
+    opacity: 1;
+    transform: translateY(0);
+    display: flex !important;
+}
+
+.metric {
+    background: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(64, 196, 255, 0.28);
+    border-radius: 12px;
+    padding: 1.6rem 2.4rem;
+    min-width: 200px;
+    flex: 1 1 200px;
+    max-width: 320px;
+    text-align: center;
+    box-shadow: 0 0 24px rgba(64, 196, 255, 0.15);
+    transition: all 0.35s;
+}
+
+.metric:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 48px rgba(64, 196, 255, 0.45);
+}
+
+.metric h3 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: #f0f7ff;
+}
+
+.metric p {
+    color: #81d4fa;
+    font-size: 1.05rem;
+}
+
+/* Tables ──────────────────────────────────────── */
+
+.table {
+    --bs-table-bg: rgba(10, 25, 47, 0.55);
+    --bs-table-accent-bg: rgba(64, 196, 255, 0.05);
+    color: #e3f2fd;
+}
+
+.table thead th {
+    background: rgba(8, 20, 40, 0.88);
+    color: #40c4ff;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.7px;
+    padding: 1rem 1.2rem;
+}
+
+.table td {
+    padding: 1rem 1.2rem;
+    vertical-align: middle;
+}
+
+.severity-critical { color: #ff8a80; }
+.severity-medium   { color: #ffe082; }
+.severity-low      { color: #64ffda; }
+
+/* Buttons & other */
+
+.btn-export {
+    background: linear-gradient(90deg, #26a69a, #009688);
+    border: none;
+    padding: 0.9rem 2.4rem;
+    font-size: 1.05rem;
+    box-shadow: 0 0 28px rgba(38, 166, 154, 0.4);
+}
+
+.btn-export:hover {
+    box-shadow: 0 0 48px rgba(38, 166, 154, 0.7);
+}
+
+.history-title {
+    color: #81d4fa;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 1.2px;
+    margin: 3.5rem 0 1.6rem;
+    text-shadow: 0 0 8px rgba(129, 212, 250, 0.35);
+}
